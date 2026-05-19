@@ -1,5 +1,7 @@
 package br.com.soulpass.models;
 
+import java.util.List;
+
 public class Usuario {
     private int id;
     private String nome;
@@ -45,5 +47,20 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    private Usuario(List<Usuario> usuarios, int id, String nome, int idade, int cpf, String email) {
+        this.id = id;
+        this.nome = nome;
+        this.idade = idade;
+        this.cpf = cpf;
+        this.email = email;
+    }
+
+    public String mostrarDados(String nome, int idade, int cpf, String email) {
+        if (id == this.id){
+            return "Nome: " + nome + "Idade: " + idade + "CPF: " + cpf + "Email: " + email;
+        }
+        return "Não foi possível adquirir o ID de usuário";
     }
 }
