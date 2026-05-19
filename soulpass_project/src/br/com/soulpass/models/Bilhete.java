@@ -47,7 +47,7 @@ public class Bilhete {
     public void cadastrarBilhete(int numBilhete, StatusBilhete status) {
         if (numBilhete < 100000000 || numBilhete > 999999999 || status == StatusBilhete.NAO_ATIVO) {
             System.out.println("-----------------------" + "\nImpossivel cadastrar bilhete, número de bilhete inexistente ou bilhete não ativo"
-                    + "-----------------------");
+                    + "\n-----------------------");
         }
         System.out.println("Cadastrando Bilhete...");
         this.numBilhete = numBilhete;

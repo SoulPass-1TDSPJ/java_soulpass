@@ -59,7 +59,7 @@ public class Usuario {
 
     public String mostrarDados(String nome, int idade, int cpf, String email) {
         if (id == this.id){
-            return "Nome: " + nome + "Idade: " + idade + "CPF: " + cpf + "Email: " + email;
+            return "=======Usuário======" + "\nNome: " + nome + "\nIdade: " + idade + "\nCPF: " + cpf + "\nEmail: " + email;
         }
         return "Não foi possível adquirir o ID de usuário";
     }
