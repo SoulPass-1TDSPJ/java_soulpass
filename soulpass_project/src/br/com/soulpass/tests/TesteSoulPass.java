@@ -13,35 +13,48 @@ public class TesteSoulPass {
         Scanner leitorDouble = new Scanner(System.in);
         Usuario usuario = new Usuario();
 
-        int op = 0;
-        while (op == 0) {
+        int op = -1;
+        while (op != 0) {
             System.out.println("======SOUL PASS======" + "\n1 - Cadastrar usuário" + "\n2 - Verificar usuário" + "\n3 - " +
                             "Mudar usuário" + "\n4 - Cadastrar bilhete único" + "\n5 - Verificar bilhete único" +
-                            "\n6 - Verificar pontos" + "\n7 - Converter pontos" + "\n----------------" +
+                            "\n6 - Verificar pontos" + "\n7 - Converter pontos" + "\n0 - Encerrar sessão" + "\n----------------" +
                             "\nDigite a opção desejada: ");
             op = leitorInt.nextInt();
             switch (op) {
                 case 1:
-                    System.out.println("----------------" + "\nCadastro de usuário" + "\n----------------");
-                    System.out.println("Digite seu nome: ");
-                    String nome = leitorStr.nextLine();
-                    usuario.setNome(nome);
-                    System.out.println("Digite a idade: ");
-                    int idade = leitorInt.nextInt();
-                    usuario.setIdade(idade);
-                    System.out.println("Digite o CPF: ");
-                    int cpf = leitorInt.nextInt();
-                    usuario.setCpf(cpf);
-                    System.out.println("Digite o email: ");
-                    String email = leitorInt.nextLine();
-                    usuario.setEmail(email);
-                    Random idn = new Random();
-                    int id = idn.nextInt((999999 - 1) + 1) + 1;
-                    usuario.setId(id);
-                    return;
+                    if (usuario.getNome() != null) {
+                        System.out.println("----------------" + "\nVocê já cadastrou um usuário");
+                        break;
+                    } else {
+                        System.out.println("----------------" + "\nCadastro de usuário" + "\n----------------");
+                        System.out.print("Digite seu nome: ");
+                        usuario.setNome(leitorStr.nextLine());
+                        System.out.print("Digite a idade: ");
+                        usuario.setIdade(leitorInt.nextInt());
+                        System.out.print("Digite o CPF: ");
+                        usuario.setCpf(leitorStr.nextLine());
+                        System.out.print("Digite o email: ");
+                        usuario.setEmail(leitorStr.nextLine());
+                        usuario.setId(new Random().nextInt(999999) + 1);
+                        System.out.println("----------------" + "\nCadastro concluído com sucesso");
+                        break;
+                    }
 
                 case 2:
-                    
+                    if (usuario.getNome() == null) {
+                        System.out.println("----------------" + "\nNenhum usuário cadastrado ainda.");
+                        break;
+                    } else {
+                        System.out.println(usuario.mostrarDados());
+                    }
+                    break;
+
+                case 0:
+                    System.out.println("----------------" + "\nEncerrando o sistema. Até mais!");
+                    break;
+
+                default:
+                    System.out.println("----------------" + "\nOpção inválida. Tente novamente.");
 
             }
 

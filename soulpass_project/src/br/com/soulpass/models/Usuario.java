@@ -6,7 +6,7 @@ public class Usuario {
     private int id;
     private String nome;
     private int idade;
-    private int cpf;
+    private String cpf;
     private String email;
 
     public int getId() {
@@ -33,11 +33,11 @@ public class Usuario {
         this.idade = idade;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -57,10 +57,12 @@ public class Usuario {
         this.email = email;
     }*/
 
-    public String mostrarDados(String nome, int idade, int cpf, String email) {
-        if (id == this.id){
-            return "=======Usuário======" + "\nNome: " + nome + "\nIdade: " + idade + "\nCPF: " + cpf + "\nEmail: " + email;
-        }
-        return "Não foi possível adquirir o ID de usuário";
+    public String mostrarDados() {
+        return "----------------" +
+                "\nNome: " + this.nome +
+                "\nIdade: " + this.idade +
+                "\nCPF: " + this.cpf +
+                "\nEmail: " + this.email +
+                "\nID: " + this.id;
     }
 }
