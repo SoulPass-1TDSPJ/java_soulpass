@@ -49,7 +49,7 @@ public class Usuario {
         this.email = email;
     }
 
-    /*private Usuario(List<Usuario> usuarios, int id, String nome, int idade, int cpf, String email) {
+    /*private Usuario(List<Usuario> usuarios, int id, String nome, int idade, String cpf, String email) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;

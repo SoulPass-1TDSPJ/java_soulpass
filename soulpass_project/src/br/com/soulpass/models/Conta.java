@@ -4,6 +4,7 @@ public class Conta {
     private double qtdePontos;
     private double limitePontos;
     private Usuario usuario;
+    private double creditos;
 
     public double getQtdePontos() {
         return qtdePontos;
@@ -21,6 +22,14 @@ public class Conta {
         this.limitePontos = 5500;
     }
 
+    public double getCreditos() {
+        return creditos;
+    }
+
+    public void setCreditos(double creditos) {
+        this.creditos = creditos;
+    }
+
     public Usuario getUsuario() {
         return usuario;
     }
@@ -29,21 +38,17 @@ public class Conta {
         this.usuario = usuario;
     }
 
-    public void limitarPontos(double limitePontos, double qtdePontos){
+    /*public void limitarPontos(double limitePontos, double qtdePontos){
         if (this.qtdePontos < this.limitePontos){
-            System.out.println("Ainda falta(m) " + (this.limitePontos - this.qtdePontos) + " ponto(s) para atingir o limite.");
-        }
-        else{
+            System.out.println("----------------" + "\nAinda falta(m) " + (this.limitePontos - this.qtdePontos) + " ponto(s) para atingir o limite.");
+        } else {
             this.qtdePontos = this.limitePontos;
-            System.out.println("Limite de pontos atingido.");
+            System.out.println("----------------" + "\nLimite de pontos atingido.");
         }
-    }
+    }*/
 
     public void adicionarPontos(double pontos){
-        if (pontos < 0) {
-            System.out.println("Erro ao adicionar pontos, não há como ter pontos negativos.");
-        }
-        qtdePontos += pontos;
-        System.out.println("Adicionado " + pontos + " ponto(s).");
+        this.qtdePontos += pontos;
+        System.out.println("----------------" + "\nAdicionado " + pontos + " ponto(s).");
     }
 }

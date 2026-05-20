@@ -9,11 +9,11 @@ public class Bilhete {
     private int numBilhete;
     private StatusBilhete status;
 
-    private Bilhete(List<Bilhete> bilhetes, int credito, int numBilhete, StatusBilhete status) {
+    /*private Bilhete(List<Bilhete> bilhetes, int credito, int numBilhete, StatusBilhete status) {
         this.credito = credito;
         this.numBilhete = numBilhete;
         this.status = status;
-    }
+    }*/
 
     public double getCredito() {
         return credito;
@@ -40,18 +40,16 @@ public class Bilhete {
     }
 
     public String mostrarBilhete(){
-        return "======Bilhete Único======" + "\nCrédito: " + credito + "\nNúmero de bilhete: " + numBilhete +
+        return "======Bilhete Único======" + "\nCrédito: R$" + credito + "\nNúmero de bilhete: " + numBilhete +
                 "\nStatus: " + status;
     }
 
     public void cadastrarBilhete(int numBilhete, StatusBilhete status) {
         if (numBilhete < 100000000 || numBilhete > 999999999 || status == StatusBilhete.NAO_ATIVO) {
-            System.out.println("-----------------------" + "\nImpossivel cadastrar bilhete, número de bilhete inexistente ou bilhete não ativo"
-                    + "\n-----------------------");
+            System.out.println("-----------------------" + "\nImpossivel cadastrar bilhete, número de bilhete inexistente ou bilhete não ativo");
+        } else {
+            System.out.println("Cadastrando Bilhete...");
+            System.out.println("Bilhete cadastrado com sucesso!");
         }
-        System.out.println("Cadastrando Bilhete...");
-        this.numBilhete = numBilhete;
-        System.out.println("Bilhete cadastrado com sucesso!");
-
     }
 }
