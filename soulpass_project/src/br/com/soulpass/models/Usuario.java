@@ -49,13 +49,13 @@ public class Usuario {
         this.email = email;
     }
 
-    private Usuario(List<Usuario> usuarios, int id, String nome, int idade, int cpf, String email) {
+    /*private Usuario(List<Usuario> usuarios, int id, String nome, int idade, int cpf, String email) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
         this.email = email;
-    }
+    }*/
 
     public String mostrarDados(String nome, int idade, int cpf, String email) {
         if (id == this.id){
