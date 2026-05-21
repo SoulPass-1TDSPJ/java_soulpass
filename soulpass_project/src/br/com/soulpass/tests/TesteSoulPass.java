@@ -3,10 +3,8 @@ package br.com.soulpass.tests;
 import br.com.soulpass.enums.StatusBilhete;
 import br.com.soulpass.models.Bilhete;
 import br.com.soulpass.models.Conta;
-import br.com.soulpass.models.ConversorPontos;
 import br.com.soulpass.models.Usuario;
 
-import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -21,13 +19,13 @@ public class TesteSoulPass {
         Conta conta = new Conta();
         int pontos = 0;
         conta.setQtdePontos(0);
-        conta.setCreditos(0);
+        bilhete.setCredito(0);
 
         int op = -1;
         while (op != 0) {
             System.out.println("======SOUL PASS======" + "\n1 - Cadastrar usuário" + "\n2 - Verificar usuário" + "\n3 - " +
                             "Mudar usuário" + "\n4 - Cadastrar bilhete único" + "\n5 - Verificar bilhete único" +
-                            "\n6 - Verificar pontos" + "\n7 - Converter pontos" + "\n8 - Fazer post" +
+                            "\n6 - Mudar bilhete único" + "\n7 - Verificar pontos" + "\n8 - Converter pontos" + "\n9 - Fazer post" +
                             "\n0 - Encerrar sessão" + "\n----------------" + "\nDigite a opção desejada: ");
             op = leitorInt.nextInt();
             switch (op) {
@@ -64,9 +62,9 @@ public class TesteSoulPass {
                         System.out.println("----------------" + "\nNão há usuário para mudar");
                     } else{
                         System.out.println("----------------" + "\nTem certeza que quer mudar suas informações de usuário?" +
-                                "\ns - Sim" + "\nn - Não");
+                                "\nS - Sim" + "\nN - Não");
                         String entr = leitorStr.nextLine();
-                        if (Objects.equals(entr, "n")) {
+                        if (entr.equalsIgnoreCase("n")) {
                             System.out.println("----------------" + "\nVoltando para o menu");
                             break;
                         } else {
@@ -88,11 +86,16 @@ public class TesteSoulPass {
                     break;
 
                 case 4:
-                    System.out.println("----------------" + "\nCadastro de Bilhete Único" + "\n----------------");
-                    System.out.print("Digite o número do seu bilhete: ");
-                    bilhete.setNumBilhete(leitorInt.nextInt());
-                    bilhete.setCredito(conta.getCreditos());
-                    bilhete.cadastrarBilhete(bilhete.getNumBilhete(), bilhete.getStatus());
+                    if (usuario.getNome() == null) {
+                        System.out.println("----------------" + "\nVocê não tem usuário para cadastrar um Bilhete");
+                        break;
+                    } else {
+                        System.out.println("----------------" + "\nCadastro de Bilhete Único" + "\n----------------");
+                        System.out.print("Digite o número do seu bilhete: ");
+                        bilhete.setNumBilhete(leitorInt.nextInt());
+                        bilhete.setCredito(bilhete.getCredito());
+                        bilhete.cadastrarBilhete(bilhete.getNumBilhete(), bilhete.getStatus());
+                    }
                     break;
 
                 case 5:
@@ -105,6 +108,25 @@ public class TesteSoulPass {
                     break;
 
                 case 6:
+                    if (bilhete.getNumBilhete() == 0){
+                        System.out.println("----------------" + "\nNão há Bilhete Único para mudar");
+                    } else{
+                        System.out.println("----------------" + "\nTem certeza que quer mudar suas informações do Bilhete Único?" +
+                                "\nS - Sim" + "\nN - Não");
+                        String ent = leitorStr.nextLine();
+                        if (ent.equalsIgnoreCase("n")) {
+                            System.out.println("----------------" + "\nVoltando para o menu");
+                            break;
+                        } else {
+                            System.out.println("----------------" + "\nNúmero anterior: " + bilhete.getNumBilhete());
+                            System.out.println("Digite o número atualizado: ");
+                            usuario.setNome(leitorStr.nextLine());
+                            System.out.println("----------------" + "\nBilhete atualizado");
+                        }
+                    }
+                    break;
+
+                case 7:
                     if (usuario.getNome() == null){
                         System.out.println("----------------" + "\nVocê não tem usuário para ter pontos");
                         break;
@@ -113,16 +135,28 @@ public class TesteSoulPass {
                     }
                     break;
 
-                case 7:
-                    conta.setCreditos(ConversorPontos.converterParaCredito(conta.getQtdePontos()));
-                    System.out.println("----------------" + "\nCréditos: " + conta.getCreditos());
-                    bilhete.setCredito(conta.getCreditos());
+                case 8:
+                    if (bilhete.getNumBilhete() == 0) {
+                        System.out.println("----------------" + "\nVocê não tem bilhete cadastrado ainda.");
+                        break;
+                    } else if (conta.getQtdePontos() < 110) {
+                        System.out.println("----------------" + "\nVocê não tem pontos suficientes. (Mínimo de 110 pontos)");
+                        break;
+                    }else {
+                        bilhete.setCredito(Conta.converterParaCredito(conta.getQtdePontos()));
+                        System.out.println("----------------" + "\nCréditos: " + bilhete.getCredito());
+                        bilhete.setCredito(bilhete.getCredito());
+                    }
                     break;
 
-                case 8:
+                case 9:
+                    if (usuario.getNome() == null) {
+                        System.out.println("----------------" + "\nVocê não tem usuário para ter postar ou ganhar pontos");
+                        break;
+                    }
                     int opt = -1;
                     while (opt != 0){
-                        System.out.println("----------------" + "\nVai postar o que?" + "\n1 - Foto (Dá 110 pts)"
+                        System.out.println("----------------" + "\nVai postar o que hoje?" + "\n1 - Foto (Dá 110 pts)"
                                 + "\n2 - Texto (Dá 55 pts)" + "\n0 - Nada");
                         opt = leitorInt.nextInt();
                         switch (opt) {

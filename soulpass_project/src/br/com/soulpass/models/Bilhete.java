@@ -9,11 +9,6 @@ public class Bilhete {
     private int numBilhete;
     private StatusBilhete status;
 
-    /*private Bilhete(List<Bilhete> bilhetes, int credito, int numBilhete, StatusBilhete status) {
-        this.credito = credito;
-        this.numBilhete = numBilhete;
-        this.status = status;
-    }*/
 
     public double getCredito() {
         return credito;

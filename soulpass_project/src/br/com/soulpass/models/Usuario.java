@@ -49,16 +49,8 @@ public class Usuario {
         this.email = email;
     }
 
-    /*private Usuario(List<Usuario> usuarios, int id, String nome, int idade, String cpf, String email) {
-        this.id = id;
-        this.nome = nome;
-        this.idade = idade;
-        this.cpf = cpf;
-        this.email = email;
-    }*/
-
     public String mostrarDados() {
-        return "----------------" +
+        return "======Usuário======" +
                 "\nNome: " + this.nome +
                 "\nIdade: " + this.idade +
                 "\nCPF: " + this.cpf +
