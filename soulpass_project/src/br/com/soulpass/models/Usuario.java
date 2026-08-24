@@ -49,6 +49,8 @@ public class Usuario {
         this.email = email;
     }
 
+    public void signIn(){}
+
     public String mostrarDados() {
         return "======Usuário======" +
                 "\nNome: " + this.nome +

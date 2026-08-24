@@ -10,185 +10,62 @@ import java.util.Scanner;
 
 public class TesteSoulPass {
     public static void main(String[] args) {
+
+        /*Leitores para que o usuário possa inserir as informações que o sistema pede que ele retorne. Temos um para
+        * String, um para números inteiros e outro para números com casa decimal. Fazemos isso para que não tenhamos
+        * que resetar o leitor para inserir outro tipo de informação*/
         Scanner leitorStr = new Scanner(System.in);
         Scanner leitorInt = new Scanner(System.in);
         Scanner leitorDouble = new Scanner(System.in);
+
+        /*Instânciando os objetos*/
         Usuario usuario = new Usuario();
         Bilhete bilhete = new Bilhete();
-        bilhete.setStatus(StatusBilhete.ATIVO);
         Conta conta = new Conta();
-        int pontos = 0;
-        conta.setQtdePontos(0);
-        bilhete.setCredito(0);
 
+        /*Aqui, começamos um laço de repetição while, como parâmetro uma variável ('op') que recebe um número inteiro
+        * e negativado, pois o laço de repeição ocorre enquando o usuário não digitar '0'*/
         int op = -1;
         while (op != 0) {
-            System.out.println("======SOUL PASS======" + "\n1 - Cadastrar usuário" + "\n2 - Verificar usuário" + "\n3 - " +
+
+            /*Pequeno menu inicial, onde as duas primeiras opções levam para o segundo menu, a terceira ajuda o
+            * usuário ao esquecer a senha, a quarta opção vai nos levar para infomações sensíveis, e a quinta
+            * irá encerrar o sistema saindo do loop
+            *
+            * Além disso, a variável 'op' irá receber um numero referente ao menu que o usuário digitar*/
+            System.out.println("\n======ENTRADA DA SOULPASS======");
+            System.out.println("1 - Fazer Sign-In");
+            System.out.println("2 - Fazer Log-In");
+            System.out.println("3 - Esqueceu a senha?");
+            System.out.println("4 - Área dos Devs");
+            System.out.println("0 - Encerrar Sistema");
+            /*System.out.println("\n======SOUL PASS======" + "\n1 - Cadastrar usuário" + "\n2 - Verificar usuário" + "\n3 - " +
                             "Mudar usuário" + "\n4 - Cadastrar bilhete único" + "\n5 - Verificar bilhete único" +
                             "\n6 - Mudar bilhete único" + "\n7 - Verificar pontos" + "\n8 - Converter pontos" + "\n9 - Fazer post" +
-                            "\n0 - Encerrar sessão" + "\n----------------" + "\nDigite a opção desejada: ");
+                            "\n0 - Encerrar sessão" + "\n----------------" + "\nDigite a opção desejada: ");*/
+            System.out.println("----------------------------");
+            System.out.println("⬇️ Digite uma opção:");
             op = leitorInt.nextInt();
+
+            /*Switch é para quando temos muitos casos de variáveis, perfeito para menu*/
             switch (op) {
-                case 1:
-                    if (usuario.getNome() != null) {
-                        System.out.println("----------------" + "\nVocê já cadastrou um usuário");
-                        break;
-                    } else {
-                        System.out.println("----------------" + "\nCadastro de usuário" + "\n----------------");
-                        System.out.print("Digite seu nome: ");
-                        usuario.setNome(leitorStr.nextLine());
-                        System.out.print("Digite a idade: ");
-                        usuario.setIdade(leitorInt.nextInt());
-                        System.out.print("Digite o CPF: ");
-                        usuario.setCpf(leitorStr.nextLine());
-                        System.out.print("Digite o email: ");
-                        usuario.setEmail(leitorStr.nextLine());
-                        usuario.setId(new Random().nextInt(999999) + 1);
-                        System.out.println("----------------" + "\nCadastro concluído com sucesso");
-                        break;
-                    }
 
-                case 2:
-                    if (usuario.getNome() == null) {
-                        System.out.println("----------------" + "\nNenhum usuário cadastrado ainda.");
-                        break;
-                    } else {
-                        System.out.println(usuario.mostrarDados());
-                    }
-                    break;
-
-                case 3:
-                    if (usuario.getNome() == null){
-                        System.out.println("----------------" + "\nNão há usuário para mudar");
-                    } else{
-                        System.out.println("----------------" + "\nTem certeza que quer mudar suas informações de usuário?" +
-                                "\nS - Sim" + "\nN - Não");
-                        String entr = leitorStr.nextLine();
-                        if (entr.equalsIgnoreCase("n")) {
-                            System.out.println("----------------" + "\nVoltando para o menu");
-                            break;
-                        } else {
-                            System.out.println("----------------" + "\nNome anterior: " + usuario.getNome());
-                            System.out.println("Digite o nome atualizado: ");
-                            usuario.setNome(leitorStr.nextLine());
-                            System.out.println("----------------" + "\nIdade anterior: " + usuario.getIdade());
-                            System.out.println("Digite a idade atualizada: ");
-                            usuario.setIdade(leitorInt.nextInt());
-                            System.out.println("----------------" + "\nCPF anterior: " + usuario.getCpf());
-                            System.out.println("Digite o CPF atualizado: ");
-                            usuario.setCpf(leitorStr.nextLine());
-                            System.out.println("----------------" + "\nEmail anterior: " + usuario.getEmail());
-                            System.out.println("Digite o email atualizado: ");
-                            usuario.setEmail(leitorStr.nextLine());
-                            System.out.println("----------------" + "\nUsuário atualizado");
-                        }
-                    }
-                    break;
-
-                case 4:
-                    if (usuario.getNome() == null) {
-                        System.out.println("----------------" + "\nVocê não tem usuário para cadastrar um Bilhete");
-                        break;
-                    } else {
-                        System.out.println("----------------" + "\nCadastro de Bilhete Único" + "\n----------------");
-                        System.out.print("Digite o número do seu bilhete: ");
-                        bilhete.setNumBilhete(leitorInt.nextInt());
-                        bilhete.setCredito(bilhete.getCredito());
-                        bilhete.cadastrarBilhete(bilhete.getNumBilhete(), bilhete.getStatus());
-                    }
-                    break;
-
-                case 5:
-                    if (bilhete.getNumBilhete() == 0) {
-                        System.out.println("----------------" + "\nNenhum Bilhete Único cadastrado ainda.");
-                        break;
-                    } else {
-                        System.out.println(bilhete.mostrarBilhete());
-                    }
-                    break;
-
-                case 6:
-                    if (bilhete.getNumBilhete() == 0){
-                        System.out.println("----------------" + "\nNão há Bilhete Único para mudar");
-                    } else{
-                        System.out.println("----------------" + "\nTem certeza que quer mudar suas informações do Bilhete Único?" +
-                                "\nS - Sim" + "\nN - Não");
-                        String ent = leitorStr.nextLine();
-                        if (ent.equalsIgnoreCase("n")) {
-                            System.out.println("----------------" + "\nVoltando para o menu");
-                            break;
-                        } else {
-                            System.out.println("----------------" + "\nNúmero anterior: " + bilhete.getNumBilhete());
-                            System.out.println("Digite o número atualizado: ");
-                            usuario.setNome(leitorStr.nextLine());
-                            System.out.println("----------------" + "\nBilhete atualizado");
-                        }
-                    }
-                    break;
-
-                case 7:
-                    if (usuario.getNome() == null){
-                        System.out.println("----------------" + "\nVocê não tem usuário para ter pontos");
-                        break;
-                    } else {
-                        System.out.println("----------------" + "\nPontos: " + conta.getQtdePontos());
-                    }
-                    break;
-
-                case 8:
-                    if (bilhete.getNumBilhete() == 0) {
-                        System.out.println("----------------" + "\nVocê não tem bilhete cadastrado ainda.");
-                        break;
-                    } else if (conta.getQtdePontos() < 110) {
-                        System.out.println("----------------" + "\nVocê não tem pontos suficientes. (Mínimo de 110 pontos)");
-                        break;
-                    }else {
-                        bilhete.setCredito(Conta.converterParaCredito(conta.getQtdePontos()));
-                        System.out.println("----------------" + "\nCréditos: " + bilhete.getCredito());
-                        bilhete.setCredito(bilhete.getCredito());
-                    }
-                    break;
-
-                case 9:
-                    if (usuario.getNome() == null) {
-                        System.out.println("----------------" + "\nVocê não tem usuário para ter postar ou ganhar pontos");
-                        break;
-                    }
-                    int opt = -1;
-                    while (opt != 0){
-                        System.out.println("----------------" + "\nVai postar o que hoje?" + "\n1 - Foto (Dá 110 pts)"
-                                + "\n2 - Texto (Dá 55 pts)" + "\n0 - Nada");
-                        opt = leitorInt.nextInt();
-                        switch (opt) {
-                            case 1:
-                                pontos += 110;
-                                conta.adicionarPontos(pontos);
-                                break;
-
-                            case 2:
-                                pontos += 55;
-                                conta.adicionarPontos(pontos);
-                                break;
-
-                            case 0:
-                                System.out.println("----------------" + "\nVoltando ao menu principal");
-                                break;
-
-                            default:
-                                System.out.println("----------------" + "\nOpção inválida, tente 1, 2 ou 0");
-                        }
-                    }
-                    break;
-
+                /*Ao usuário digitar a opção para encerrar o sistema, ele retornará uma mensagem para que ele
+                * saiba disso*/
                 case 0:
-                    System.out.println("----------------" + "\nEncerrando o sistema. Até mais!");
+                    System.out.println("----------------------------");
+                    System.out.println("👋 Até uma próxima!");
+                    System.out.println("Encerrando sistema...");
                     break;
 
+                /*Para caso qualquer outra coisa seja digitada, ele dará uma mensagem de erro e instruirá o
+                * usuário à digitar um número equivalente à uma opção do menu*/
                 default:
-                    System.out.println("----------------" + "\nOpção inválida. Tente novamente.");
-
+                    System.out.println("----------------------------");
+                    System.out.println("⚠️ Opção Inválida ⚠️");
+                    System.out.println("Digite um número equivalente à uma opção");
+                    break;
             }
-
         }
     }
 }
