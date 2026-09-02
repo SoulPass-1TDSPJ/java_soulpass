@@ -1,62 +1,50 @@
 package br.com.soulpass.models;
 
-import java.util.List;
-
 public class Usuario {
-    private int id;
+    private int idUser;
     private String nome;
     private int idade;
-    private String cpf;
+    private long cpf;
     private String email;
+    private String senha;
+    private Bilhete bilhete;
 
-    public int getId() {
-        return id;
-    }
+    public int getIdUser() {return idUser;}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setIdUser(int idUser) {this.idUser = idUser;}
 
-    public String getNome() {
-        return nome;
-    }
+    public String getNome() {return nome;}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public void setNome(String nome) {this.nome = nome;}
 
-    public int getIdade() {
-        return idade;
-    }
+    public int getIdade() {return idade;}
 
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
+    public void setIdade(int idade) {this.idade = idade;}
 
-    public String getCpf() {
-        return cpf;
-    }
+    public long getCpf() {return cpf;}
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+    public void setCpf(long cpf) {this.cpf = cpf;}
 
-    public String getEmail() {
-        return email;
-    }
+    public String getEmail() {return email;}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public void setEmail(String email) {this.email = email;}
 
-    public void signIn(){}
+    public String getSenha() {return senha;}
 
-    public String mostrarDados() {
-        return "======Usuário======" +
+    public void setSenha(String senha) {this.senha = senha;}
+
+    public Bilhete getBilhete() {return bilhete;}
+
+    public void setBilhete(Bilhete bilhete) {this.bilhete = bilhete;}
+
+    public String mostrarDadosDev() {
+        return "\n======Usuário======" +
+                "\nID Usuário: " + this.idUser +
                 "\nNome: " + this.nome +
                 "\nIdade: " + this.idade +
                 "\nCPF: " + this.cpf +
                 "\nEmail: " + this.email +
-                "\nID: " + this.id;
+                "\nSenha: " + this.senha +
+                "\n" + this.bilhete;
     }
 }

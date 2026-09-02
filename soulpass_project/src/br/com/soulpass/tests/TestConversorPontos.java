@@ -2,7 +2,7 @@ package br.com.soulpass.tests;
 
 import br.com.soulpass.models.Conta;
 
-public class TesteConversorPontos {
+public class TestConversorPontos {
     public static void main(String[] args) {
 
         int pontos = 550;

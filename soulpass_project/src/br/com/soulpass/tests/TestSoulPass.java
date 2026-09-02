@@ -1,14 +1,12 @@
 package br.com.soulpass.tests;
 
-import br.com.soulpass.enums.StatusBilhete;
 import br.com.soulpass.models.Bilhete;
 import br.com.soulpass.models.Conta;
 import br.com.soulpass.models.Usuario;
 
-import java.util.Random;
 import java.util.Scanner;
 
-public class TesteSoulPass {
+public class TestSoulPass {
     public static void main(String[] args) {
 
         /*Leitores para que o usuário possa inserir as informações que o sistema pede que ele retorne. Temos um para
@@ -32,7 +30,7 @@ public class TesteSoulPass {
             * usuário ao esquecer a senha, a quarta opção vai nos levar para infomações sensíveis, e a quinta
             * irá encerrar o sistema saindo do loop
             *
-            * Além disso, a variável 'op' irá receber um numero referente ao menu que o usuário digitar*/
+            * Além disso, a variável 'op' irá receber um número referente ao menu que o usuário digitar*/
             System.out.println("\n======ENTRADA DA SOULPASS======");
             System.out.println("1 - Fazer Sign-In");
             System.out.println("2 - Fazer Log-In");
@@ -49,6 +47,9 @@ public class TesteSoulPass {
 
             /*Switch é para quando temos muitos casos de variáveis, perfeito para menu*/
             switch (op) {
+                /**/
+                case 1:
+
 
                 /*Ao usuário digitar a opção para encerrar o sistema, ele retornará uma mensagem para que ele
                 * saiba disso*/
