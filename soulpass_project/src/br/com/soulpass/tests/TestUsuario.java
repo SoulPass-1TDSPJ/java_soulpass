@@ -23,6 +23,8 @@ public class TestUsuario {
             usuario.setCpf(inputLong.nextLong());
             System.out.println("Digite seu e-mail: ");
             usuario.setEmail(inputStr.nextLine());
+            System.out.println("Digite seu senha: ");
+            usuario.setSenha(inputStr.nextLine());
 
             System.out.println(usuario.mostrarDadosDev());
         } catch (Exception e) {
