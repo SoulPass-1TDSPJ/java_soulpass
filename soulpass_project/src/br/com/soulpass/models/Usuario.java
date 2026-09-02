@@ -37,14 +37,22 @@ public class Usuario {
 
     public void setBilhete(Bilhete bilhete) {this.bilhete = bilhete;}
 
+    public String mostrarDados() {
+        return "\n======Usuário======" +
+                "\nNome: " + nome +
+                "\nIdade: " + idade +
+                "\nEmail: " + email +
+                "\nCPF: " + cpf;
+    }
+
     public String mostrarDadosDev() {
         return "\n======Usuário======" +
-                "\nID Usuário: " + this.idUser +
-                "\nNome: " + this.nome +
-                "\nIdade: " + this.idade +
-                "\nCPF: " + this.cpf +
-                "\nEmail: " + this.email +
-                "\nSenha: " + this.senha +
-                "\n" + this.bilhete;
+                "\nID Usuário: " + idUser +
+                "\nNome: " + nome +
+                "\nIdade: " + idade +
+                "\nCPF: " + cpf +
+                "\nEmail: " + email +
+                "\nSenha: " + senha +
+                "\n" + bilhete;
     }
 }
