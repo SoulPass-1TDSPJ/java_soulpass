@@ -9,7 +9,7 @@ a meta diária de 6km; E deve manter histórico de corrida por dia.
 
 - ### 🦵 Mobilidade Sustentável:
 ---
-O sistema irá atribuir 40 pontos a cada 2km (Até 6km) percorridos; O é limite de 180
+O sistema irá atribuir 40 pontos a cada 2km (Até 6km) percorridos; O limite é de 120
 pontos por dia. O usuário deve poder visualizar que completou os quiilômetros.
 
 - ### 📒 Gestão de Pontos do Usuário:
