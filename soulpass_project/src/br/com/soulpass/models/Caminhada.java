@@ -10,11 +10,17 @@ import java.time.LocalDateTime;
  * */
 public class Caminhada {
     //Parâmetros do método caminhada
+    private int idCaminhada;
     private LocalDateTime diaCaminhada;
     private double kmAndados;
     private Conta conta;
 
     //Métodos getter e setters dos parâmetros
+
+    public int getIdCaminhada() {return idCaminhada;}
+
+    public void setIdCaminhada(int idCaminhada) {this.idCaminhada = idCaminhada;}
+
     public LocalDateTime getDiaCaminhada() {return diaCaminhada;}
 
     public void setDiaCaminhada(LocalDateTime diaCaminhada) {this.diaCaminhada = diaCaminhada;}
@@ -33,7 +39,7 @@ public class Caminhada {
         return pontosGanhos;
     }
 
-    private int calcularPontos(double kmAndados) {
+    public int calcularPontos(double kmAndados) {
         // Respeita o limite diário de km, caso o usuário ultrapasse
         double kmValidos = Math.min(kmAndados, 6);
         int pontosGanhos = 0;
