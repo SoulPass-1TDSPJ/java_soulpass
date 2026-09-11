@@ -5,7 +5,7 @@ import br.com.soulpass.models.Conta;
 public class TestConversorPontos {
     public static void main(String[] args) {
 
-        int pontos = 550;
+        int pontos = 500;
 
         double creditos = Conta.converterParaCredito(pontos);
 

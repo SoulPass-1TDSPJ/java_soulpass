@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * Classe feita com IA. Já que só vai fazer os testes básicos de DAO, não quero perder muito tempo.
  * Classe de teste MANUAL (console) para ContaDAO.
  * Execute a classe (main) e utilize o menu para testar cada operação do CRUD.
  */

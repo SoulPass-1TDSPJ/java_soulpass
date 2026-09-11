@@ -1,5 +1,6 @@
-package br.com.soulpass.dao;
+package br.com.soulpass.tests;
 
+import br.com.soulpass.dao.UsuarioDAO;
 import br.com.soulpass.models.Bilhete;
 import br.com.soulpass.models.Usuario;
 
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * Classe feita com IA. Já que só vai fazer os testes básicos de DAO, não quero perder muito tempo.
  * Classe de teste MANUAL (console) para UsuarioDAO.
  * Execute a classe (main) e utilize o menu para testar cada operação do CRUD.
  */
