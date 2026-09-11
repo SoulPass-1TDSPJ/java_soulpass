@@ -137,23 +137,22 @@ public class UsuarioDAO {
         conexao = ConnectionFactory.obterConexao();
         PreparedStatement ps = null;
         String sql = "SELECT * FROM tbl_usuario WHERE email = ? AND senha = ?";
-        Usuario usuarioLogado = new Usuario();
         try{
             ps = conexao.prepareStatement(sql);
-            ps.setString(1, usuarioLogado.getEmail());
-            ps.setString(2, usuarioLogado.getSenha());
+            ps.setString(1, usuario.getEmail());
+            ps.setString(2, usuario.getSenha());
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                usuarioLogado.setIdUser(rs.getInt("id_user"));
-                usuarioLogado.setNome(rs.getString("nome"));
-                usuarioLogado.setIdade(rs.getInt("idade"));
-                usuarioLogado.setCpf(rs.getLong("cpf"));
-                usuarioLogado.setEmail(rs.getString("email"));
-                usuarioLogado.setSenha(rs.getString("senha"));
+                usuario.setIdUser(rs.getInt("id_user"));
+                usuario.setNome(rs.getString("nome"));
+                usuario.setIdade(rs.getInt("idade"));
+                usuario.setCpf(rs.getLong("cpf"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setSenha(rs.getString("senha"));
                 int idTicket = rs.getInt("id_ticket");
                 if (!rs.wasNull()) {
                     Bilhete bilhete = new BilheteDAO().buscarBilhetePorId(idTicket);
-                    usuarioLogado.setBilhete(bilhete);
+                    usuario.setBilhete(bilhete);
                 }
             }
             ps.close();
@@ -161,10 +160,10 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        if (usuarioLogado == null) {
+        if (usuario == null) {
             System.out.println("-----------------------\nE-mail ou senha inválidos.");
         }
-        return usuarioLogado;
+        return usuario;
     }
 
     /**

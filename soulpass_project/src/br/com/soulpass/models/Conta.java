@@ -2,9 +2,8 @@ package br.com.soulpass.models;
 
 import br.com.soulpass.enums.OrigemPontos;
 import br.com.soulpass.enums.StatusConta;
-import br.com.soulpass.interfaces.ConverterParaCredito;
 
-public class Conta implements ConverterParaCredito {
+public class Conta{
     private int idConta;
     private StatusConta atividade;
     private Usuario usuario;
