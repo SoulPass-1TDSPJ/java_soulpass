@@ -87,6 +87,7 @@ public class CaminhadaDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Caminhada caminhada = new Caminhada();
+                caminhada.setIdCaminhada(rs.getInt("id_caminhada"));
                 caminhada.setDiaCaminhada(rs.getTimestamp("dia_caminhada").toLocalDateTime());
                 caminhada.setKmAndados(rs.getDouble("km_andados"));
                 Conta conta = new ContaDAO().buscarContaPorId(rs.getInt("id_conta"));
