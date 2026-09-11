@@ -14,8 +14,8 @@ public class App {
 
         /*Aqui, começamos um laço de repetição while, como parâmetro uma variável ('op') que recebe um número inteiro
          * e negativado, pois o laço de repeição ocorre enquando o usuário não digitar '0'*/
-        int op = -1;
-        while (op != 0) {
+        int opi = -1;
+        while (opi != 0) {
 
             /*Pequeno menu inicial, onde as duas primeiras opções levam para o segundo menu, a terceira ajuda o
              * usuário ao esquecer a senha, a quarta opção vai nos levar para infomações sensíveis, e a quinta
@@ -34,16 +34,16 @@ public class App {
                             "\n0 - Encerrar sessão" + "\n----------------" + "\nDigite a opção desejada: ");*/
             System.out.println("----------------------------");
             System.out.println("⬇️ Digite uma opção:");
-            op = leitorInt.nextInt();
+            opi = leitorInt.nextInt();
 
             /*Switch é para quando temos muitos casos de variáveis, perfeito para menu*/
-            switch (op) {
+            switch (opi) {
                 /**/
                 case 1:
 
 
-                    /*Ao usuário digitar a opção para encerrar o sistema, ele retornará uma mensagem para que ele
-                     * saiba disso*/
+                /*Ao usuário digitar a opção para encerrar o sistema, ele retornará uma mensagem para que ele
+                 * saiba disso*/
                 case 0:
                     System.out.println("----------------------------");
                     System.out.println("👋 Até uma próxima!");
@@ -61,11 +61,12 @@ public class App {
         }
     }
 
+    /**
+     * Pequeno menu inicial, onde as duas primeiras opções levam para o segundo menu, a terceira ajuda o
+     * usuário ao esquecer a senha, a quarta opção vai nos levar para infomações sensíveis, e a quinta
+     * irá encerrar o sistema saindo do 'loop'.
+     * */
     private static void menuInicial(){
-        /*Pequeno menu inicial, onde as duas primeiras opções levam para o segundo menu, a terceira ajuda o
-         * usuário ao esquecer a senha, a quarta opção vai nos levar para infomações sensíveis, e a quinta
-         * irá encerrar o sistema saindo do 'loop'.
-         * Além disso, a variável 'op' irá receber um número referente ao menu que o usuário digitar*/
         System.out.println("\n======ENTRADA DA SOULPASS======");
         System.out.println("1 - Fazer Sign-In");
         System.out.println("2 - Fazer Log-In");
@@ -78,13 +79,41 @@ public class App {
 
     private static void menuFinalDoUser(){
         System.out.println("\n======SOULPASS======");
-        System.out.println("1 - Conferir conta e usuário");
-        System.out.println("2 - Editar usuário");
-        System.out.println("3 - ");
-        System.out.println("4 - Área dos Devs");
-        System.out.println("0 - Encerrar Sistema");
+        System.out.println("1 - Conferir Conta e Usuário");
+        System.out.println("2 - Editar Usuário");
+        System.out.println("3 - Adicionar Bilhete");
+        System.out.println("4 - Editar Bilhete");
+        System.out.println("5 - Fazer Post");
+        System.out.println("6 - Excluit Post");
+        System.out.println("7 - Fazer Caminhada");
+        System.out.println("8 - Exibir Histórico");
+        System.out.println("9 - Desativar Conta");
+        System.out.println("0 - Voltar à Entrada");
         System.out.println("----------------------------");
         System.out.println("⬇️ Digite uma opção:");
     }
+
+    private static void menuFinalDoDev(){
+        System.out.println("\n======ÁREA DEV======");
+        System.out.println("1 - Listar contas e usuários");
+        System.out.println("2 - Editar usuário");
+        System.out.println("3 - Deletar usuário");
+        System.out.println("4 - Editar conta");
+        System.out.println("5 - Deletar conta");
+        System.out.println("6 - Listar bilhetes");
+        System.out.println("7 - Editar bilhete");
+        System.out.println("8 - Alterar bilhete");
+        System.out.println("9 - Listar posts");
+        System.out.println("10 - Deletar post");
+        System.out.println("11 - Listar caminhada");
+        System.out.println("12 - Deletar caminhada");
+        System.out.println("13 - Exibir históricos");
+        System.out.println("14 - Deletar histórico");
+        System.out.println("0 - Voltar à entrada");
+        System.out.println("----------------------------");
+        System.out.println("⬇️ Digite uma opção:");
+    }
+
+
 }
 
