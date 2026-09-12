@@ -1,6 +1,6 @@
-<mxfile host="drawio-plugin" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" modified="2026-09-11T10:49:31.635Z" etag="yHLYn8K897VdxJl54jWs" version="22.1.22" type="embed">
+<mxfile host="drawio-plugin" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" modified="2026-09-12T01:56:42.624Z" etag="kOf5cWDhrKz0vs58DxaK" version="22.1.22" type="embed">
   <diagram name="SoulPass" id="ViaIN5cOVKNk5DKJqnrT">
-    <mxGraphModel dx="1000" dy="813" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="514" dy="749" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -44,7 +44,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="mnLNDSJccs-veNUzjas2-5" value="Conta" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=0;swimlaneLine=0;rounded=0;fontColor=#000000;fontFamily=Lucida Console;" parent="1" vertex="1">
-          <mxGeometry x="395" y="404" width="240" height="278" as="geometry" />
+          <mxGeometry x="395" y="404" width="240" height="284" as="geometry" />
         </mxCell>
         <mxCell id="7" value="- idConta: int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;glass=0;fillColor=#FFFFFF;fontColor=#000000;strokeColor=none;fontFamily=Lucida Console;" parent="mnLNDSJccs-veNUzjas2-5" vertex="1">
           <mxGeometry y="26" width="240" height="26" as="geometry" />
@@ -67,11 +67,11 @@
         <mxCell id="mnLNDSJccs-veNUzjas2-7" value="" style="line;strokeWidth=5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#A9C4EB;" parent="mnLNDSJccs-veNUzjas2-5" vertex="1">
           <mxGeometry y="182" width="240" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="_uq8NKmNiCawNoKBXtrl-7" value="+ adicionarPontos(pontos: int): void" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="mnLNDSJccs-veNUzjas2-5" vertex="1">
-          <mxGeometry y="190" width="240" height="44" as="geometry" />
+        <mxCell id="_uq8NKmNiCawNoKBXtrl-7" value="+ adicionarPontos(pontos: double, origem: OrigemPontos): void" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="mnLNDSJccs-veNUzjas2-5" vertex="1">
+          <mxGeometry y="190" width="240" height="50" as="geometry" />
         </mxCell>
         <mxCell id="37" value="+ converterParaCredito(pontos: double): double" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="mnLNDSJccs-veNUzjas2-5" vertex="1">
-          <mxGeometry y="234" width="240" height="44" as="geometry" />
+          <mxGeometry y="240" width="240" height="44" as="geometry" />
         </mxCell>
         <mxCell id="mnLNDSJccs-veNUzjas2-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="mnLNDSJccs-veNUzjas2-9" target="mnLNDSJccs-veNUzjas2-13" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -88,7 +88,7 @@
           <mxGeometry y="52" width="176" height="30" as="geometry" />
         </mxCell>
         <mxCell id="mnLNDSJccs-veNUzjas2-13" value="Bilhete" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=0;swimlaneLine=0;fontColor=#000000;fontFamily=Lucida Console;" parent="1" vertex="1">
-          <mxGeometry x="680" y="78" width="241" height="210" as="geometry" />
+          <mxGeometry x="680" y="78" width="241" height="220" as="geometry" />
         </mxCell>
         <mxCell id="6" value="- idTicket: int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;glass=0;fillColor=#FFFFFF;fontColor=#000000;strokeColor=none;fontFamily=Lucida Console;" parent="mnLNDSJccs-veNUzjas2-13" vertex="1">
           <mxGeometry y="26" width="241" height="26" as="geometry" />
@@ -108,8 +108,8 @@
         <mxCell id="mnLNDSJccs-veNUzjas2-16" value="+ mostrarDados(): String" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="mnLNDSJccs-veNUzjas2-13" vertex="1">
           <mxGeometry y="138" width="241" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="mnLNDSJccs-veNUzjas2-25" value="+ cadastrarBilhete(numBilhete: int): String" style="text;strokeColor=none;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontColor=#000000;" parent="mnLNDSJccs-veNUzjas2-13" vertex="1">
-          <mxGeometry y="170" width="241" height="40" as="geometry" />
+        <mxCell id="mnLNDSJccs-veNUzjas2-25" value="+ cadastrarBilhete(numBilhete: int, status: StatusBilhete): boolean" style="text;strokeColor=none;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontColor=#000000;" parent="mnLNDSJccs-veNUzjas2-13" vertex="1">
+          <mxGeometry y="170" width="241" height="50" as="geometry" />
         </mxCell>
         <mxCell id="n35Z3zdyMOUMM6rTzAYl-3" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="mnLNDSJccs-veNUzjas2-1" target="mnLNDSJccs-veNUzjas2-5" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -124,34 +124,37 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="11" value="Post" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=0;swimlaneLine=0;rounded=0;fontColor=#000000;fontFamily=Lucida Console;" parent="1" vertex="1">
-          <mxGeometry x="120" y="310" width="210" height="216" as="geometry" />
+          <mxGeometry x="100" y="300" width="230" height="270" as="geometry" />
         </mxCell>
         <mxCell id="18" value="- idPost: int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;glass=0;fillColor=#FFFFFF;fontColor=#000000;strokeColor=none;fontFamily=Lucida Console;" parent="11" vertex="1">
-          <mxGeometry y="26" width="210" height="26" as="geometry" />
+          <mxGeometry y="26" width="230" height="26" as="geometry" />
         </mxCell>
         <mxCell id="12" value="- conta: Conta" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;glass=0;fillColor=#FFFFFF;fontColor=#000000;strokeColor=none;fontFamily=Lucida Console;" parent="11" vertex="1">
-          <mxGeometry y="52" width="210" height="26" as="geometry" />
+          <mxGeometry y="52" width="230" height="26" as="geometry" />
         </mxCell>
         <mxCell id="38" value="- dataPost: LocalDateTime" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;glass=0;fillColor=#FFFFFF;fontColor=#000000;strokeColor=none;fontFamily=Lucida Console;" parent="11" vertex="1">
-          <mxGeometry y="78" width="210" height="26" as="geometry" />
+          <mxGeometry y="78" width="230" height="26" as="geometry" />
         </mxCell>
         <mxCell id="13" value="- temFoto: boolean" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="11" vertex="1">
-          <mxGeometry y="104" width="210" height="26" as="geometry" />
+          <mxGeometry y="104" width="230" height="26" as="geometry" />
         </mxCell>
         <mxCell id="14" value="- temVideo: boolean" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="11" vertex="1">
-          <mxGeometry y="130" width="210" height="26" as="geometry" />
+          <mxGeometry y="130" width="230" height="26" as="geometry" />
         </mxCell>
         <mxCell id="19" value="- textoPost: String" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="11" vertex="1">
-          <mxGeometry y="156" width="210" height="26" as="geometry" />
+          <mxGeometry y="156" width="230" height="26" as="geometry" />
         </mxCell>
         <mxCell id="15" value="" style="line;strokeWidth=5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#A9C4EB;" parent="11" vertex="1">
-          <mxGeometry y="182" width="210" height="8" as="geometry" />
+          <mxGeometry y="182" width="230" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="16" value="+ postar(pontos: int): int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="11" vertex="1">
-          <mxGeometry y="190" width="210" height="26" as="geometry" />
+        <mxCell id="16" value="+ postar(): int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="11" vertex="1">
+          <mxGeometry y="190" width="230" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="74" value="+ calcularPontos(temFoto:&amp;nbsp; boolean, temVideo: boolean): int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" vertex="1" parent="11">
+          <mxGeometry y="216" width="230" height="54" as="geometry" />
         </mxCell>
         <mxCell id="20" value="Caminhada" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=0;swimlaneLine=0;rounded=0;fontColor=#000000;fontFamily=Lucida Console;" parent="1" vertex="1">
-          <mxGeometry x="100" y="590" width="230" height="166" as="geometry" />
+          <mxGeometry x="100" y="590" width="230" height="210" as="geometry" />
         </mxCell>
         <mxCell id="21" value="- idCaminhada: int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;glass=0;fillColor=#FFFFFF;fontColor=#000000;strokeColor=none;fontFamily=Lucida Console;" parent="20" vertex="1">
           <mxGeometry y="26" width="230" height="26" as="geometry" />
@@ -168,8 +171,11 @@
         <mxCell id="26" value="" style="line;strokeWidth=5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#A9C4EB;" parent="20" vertex="1">
           <mxGeometry y="130" width="230" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="27" value="+ caminhar(pontos: int): int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="20" vertex="1">
+        <mxCell id="27" value="+ caminhar(): int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="20" vertex="1">
           <mxGeometry y="138" width="230" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="75" value="+ calcularPontos(kmAndados: double): int" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" vertex="1" parent="20">
+          <mxGeometry y="166" width="230" height="44" as="geometry" />
         </mxCell>
         <mxCell id="29" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="mnLNDSJccs-veNUzjas2-5" target="11" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -178,7 +184,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="31" value="StatusConta" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;swimlaneLine=0;fontColor=#000000;fontFamily=Lucida Console;" parent="1" vertex="1">
-          <mxGeometry x="660" y="502" width="176" height="82" as="geometry" />
+          <mxGeometry x="670" y="505" width="176" height="82" as="geometry" />
         </mxCell>
         <mxCell id="32" value="ATIVA" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="31" vertex="1">
           <mxGeometry y="26" width="176" height="26" as="geometry" />
@@ -199,7 +205,7 @@
           <mxGeometry y="52" width="176" height="30" as="geometry" />
         </mxCell>
         <mxCell id="54" value="HistóricoPontos" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=0;swimlaneLine=0;rounded=0;fontColor=#000000;fontFamily=Lucida Console;" parent="1" vertex="1">
-          <mxGeometry x="750" y="620" width="230" height="190" as="geometry" />
+          <mxGeometry x="750" y="620" width="230" height="156" as="geometry" />
         </mxCell>
         <mxCell id="55" value="- idHistórico: int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;glass=0;fillColor=#FFFFFF;fontColor=#000000;strokeColor=none;fontFamily=Lucida Console;" parent="54" vertex="1">
           <mxGeometry y="26" width="230" height="26" as="geometry" />
@@ -215,12 +221,6 @@
         </mxCell>
         <mxCell id="59" value="- dataRegistro: LocalDateTime" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="54" vertex="1">
           <mxGeometry y="130" width="230" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="61" value="" style="line;strokeWidth=5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#A9C4EB;" parent="54" vertex="1">
-          <mxGeometry y="156" width="230" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="62" value="+ registrar(): void" style="text;strokeColor=none;fillColor=#FFFFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;fontFamily=Lucida Console;" parent="54" vertex="1">
-          <mxGeometry y="164" width="230" height="26" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
