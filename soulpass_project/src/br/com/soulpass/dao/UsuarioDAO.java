@@ -22,7 +22,6 @@ public class UsuarioDAO {
      * Insere um novo usuário no banco de dados.
      * Caso o usuário já possua um {@link Bilhete} vinculado, o id_ticket é salvo junto;
      * caso contrário, a coluna id_ticket é gravada como nula.
-     *
      * @param usuario objeto contendo os dados (nome, idade, cpf, email, senha e, opcionalmente, bilhete)
      *                a serem persistidos.
      */
@@ -55,7 +54,6 @@ public class UsuarioDAO {
 
     /**
      * Busca um único usuário a partir do seu identificador (id_user).
-     *
      * @param id identificador do usuário na tabela tbl_usuario.
      * @return o {@link Usuario} correspondente, já com o {@link Bilhete} vinculado carregado (se existir),
      *         ou {@code null} caso nenhum registro seja encontrado com esse id.
@@ -92,7 +90,6 @@ public class UsuarioDAO {
 
     /**
      * Lista todos os usuários cadastrados na tabela tbl_usuario.
-     *
      * @return uma {@link List} com todos os usuários encontrados (lista vazia caso não haja nenhum registro).
      */
     public List<Usuario> listarUsuarios() {
@@ -128,7 +125,6 @@ public class UsuarioDAO {
 
     /**
      * Realiza o login verificando se existe, no banco, um usuário com o e-mail e a senha informados.
-     *
      * @param usuario objeto contendo apenas o {@code email} e a {@code senha} a serem validados.
      * @return o {@link Usuario} completo correspondente em caso de sucesso, ou {@code null} caso
      *         as credenciais não confiram com nenhum registro.
@@ -137,22 +133,24 @@ public class UsuarioDAO {
         conexao = ConnectionFactory.obterConexao();
         PreparedStatement ps = null;
         String sql = "SELECT * FROM tbl_usuario WHERE email = ? AND senha = ?";
+        Usuario usuarioEncontrado = null;
         try{
             ps = conexao.prepareStatement(sql);
             ps.setString(1, usuario.getEmail());
             ps.setString(2, usuario.getSenha());
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                usuario.setIdUser(rs.getInt("id_user"));
-                usuario.setNome(rs.getString("nome"));
-                usuario.setIdade(rs.getInt("idade"));
-                usuario.setCpf(rs.getLong("cpf"));
-                usuario.setEmail(rs.getString("email"));
-                usuario.setSenha(rs.getString("senha"));
+                usuarioEncontrado = new Usuario();
+                usuarioEncontrado.setIdUser(rs.getInt("id_user"));
+                usuarioEncontrado.setNome(rs.getString("nome"));
+                usuarioEncontrado.setIdade(rs.getInt("idade"));
+                usuarioEncontrado.setCpf(rs.getLong("cpf"));
+                usuarioEncontrado.setEmail(rs.getString("email"));
+                usuarioEncontrado.setSenha(rs.getString("senha"));
                 int idTicket = rs.getInt("id_ticket");
                 if (!rs.wasNull()) {
                     Bilhete bilhete = new BilheteDAO().buscarBilhetePorId(idTicket);
-                    usuario.setBilhete(bilhete);
+                    usuarioEncontrado.setBilhete(bilhete);
                 }
             }
             ps.close();
@@ -160,16 +158,15 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        if (usuario == null) {
+        if (usuarioEncontrado == null) {
             System.out.println("-----------------------\nE-mail ou senha inválidos.");
         }
-        return usuario;
+        return usuarioEncontrado;
     }
 
     /**
      * Atualiza nome, idade, cpf e email de um usuário já existente, localizado pelo par
      * email/senha atuais (usados como "chave" de validação antes da alteração).
-     *
      * @param usuario objeto com os novos dados (nome, idade, cpf, email) e as credenciais
      *                atuais (email, senha) usadas para localizar o registro.
      */
@@ -195,8 +192,28 @@ public class UsuarioDAO {
     }
 
     /**
+     * Vincula um bilhete já existente a um usuário já cadastrado, atualizando a coluna id_ticket.
+     * @param idUser identificador do usuário que receberá o bilhete.
+     * @param idTicket identificador do bilhete a ser vinculado.
+     */
+    public void vincularBilhete(int idUser, int idTicket) {
+        conexao = ConnectionFactory.obterConexao();
+        PreparedStatement ps = null;
+        String sql = "UPDATE tbl_usuario SET id_ticket = ? WHERE id_user = ?";
+        try {
+            ps = conexao.prepareStatement(sql);
+            ps.setInt(1, idTicket);
+            ps.setInt(2, idUser);
+            ps.executeUpdate();
+            ps.close();
+            conexao.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
      * Altera a senha de um usuário, localizado pelo e-mail.
-     *
      * @param usuario objeto contendo o {@code email} do usuário e a {@code nova senha} a ser gravada.
      */
     public void mudarSenha(Usuario usuario) {
@@ -217,7 +234,6 @@ public class UsuarioDAO {
 
     /**
      * Remove um usuário do banco de dados a partir do seu identificador.
-     *
      * @param id identificador (id_user) do usuário a ser excluído.
      */
     public void excluirUsuario(int id) {
