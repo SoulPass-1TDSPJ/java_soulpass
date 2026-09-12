@@ -68,8 +68,6 @@ public class App {
         }
     }
 
-    // ==================== ENTRADA (SIGN-IN / LOG-IN / SENHA) ====================
-
     /**
      * Cadastra um novo usuário e já cria a conta SoulPass vinculada a ele.
      */
@@ -91,8 +89,6 @@ public class App {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuarioDAO.cadastrarUsuario(novoUsuario);
 
-        /*Reaproveita o login (já corrigido) para recuperar o registro recém-criado,
-         * incluindo o id_user gerado pelo banco*/
         Usuario usuarioCriado = usuarioDAO.login(novoUsuario);
         if (usuarioCriado == null) {
             System.out.println("-----------------------\nNão foi possível concluir o cadastro.");
@@ -140,8 +136,6 @@ public class App {
 
         System.out.println("-----------------------\n✅ Senha alterada com sucesso!");
     }
-
-    // ==================== ÁREA DO USUÁRIO LOGADO ====================
 
     private static void menuUsuarioLoop(Usuario usuarioLogado) {
         Conta conta = new ContaDAO().buscarContaPorUsuario(usuarioLogado.getIdUser());
@@ -251,7 +245,6 @@ public class App {
         BilheteDAO bilheteDAO = new BilheteDAO();
         bilheteDAO.cadastrarBilhete(bilhete);
 
-        // Recupera o id_ticket gerado pelo banco procurando o bilhete pelo número cadastrado
         Bilhete criado = null;
         for (Bilhete b : bilheteDAO.listarBilhetes()) {
             if (b.getNumBilhete() == bilhete.getNumBilhete()) {
@@ -393,8 +386,6 @@ public class App {
         historico.setDataRegistro(LocalDateTime.now());
         new HistoricoPontosDAO().registrarHistorico(historico);
     }
-
-    // ==================== ÁREA DOS DEVS ====================
 
     private static void menuDevLoop() {
         int op = -1;
@@ -619,8 +610,6 @@ public class App {
         System.out.println("-----------------------\n✅ Histórico excluído com sucesso!");
     }
 
-    // ==================== MENUS (impressão) ====================
-
     private static void menuInicial() {
         System.out.println("\n======ENTRADA DA SOULPASS======");
         System.out.println("1 - Fazer Sign-In");
@@ -667,8 +656,6 @@ public class App {
         System.out.println("----------------------------");
         System.out.println("⬇️ Digite uma opção:");
     }
-
-    // ==================== LEITURA DE ENTRADA ====================
 
     private static int lerInt(String prompt) {
         while (true) {
