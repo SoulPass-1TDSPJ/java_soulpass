@@ -33,12 +33,21 @@ public class Caminhada {
 
     public void setConta(Conta conta) {this.conta = conta;}
 
+    /**
+     * Método de Caminhada responsável por executar o método calcularPontos, adicionar à conta e
+     * retornar os pontosGanhos pela ação de caminhar.
+     * */
     public int caminhar() {
         int pontosGanhos = calcularPontos(kmAndados);
         conta.adicionarPontos(pontosGanhos, OrigemPontos.CAMINHADA);
         return pontosGanhos;
     }
 
+    /**
+     * Método de Caminhada responsável por calcular os contos que o usuário vai receber ao caminhar
+     *
+     * @Param kmAndados identifica a quantidade de quilomêtros andados pelo usuário
+     * */
     public int calcularPontos(double kmAndados) {
         // Respeita o limite diário de km, caso o usuário ultrapasse
         double kmValidos = Math.min(kmAndados, 6);

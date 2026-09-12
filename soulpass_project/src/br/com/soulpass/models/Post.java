@@ -37,13 +37,21 @@ public class Post {
     public void setTextoPost(String textoPost) {this.textoPost = textoPost;}
 
     /**
-     * Método de Post responsável por */
+     * Método de Post responsável por executar o método calcularPontos, adicionar à conta e
+     * retornar os pontosGanhos pela ação de postar.
+     * */
     public int postar(){
         int pontosGanhos = calcularPontos(temFoto, temvideo);
         conta.adicionarPontos(pontosGanhos, OrigemPontos.POST);
         return pontosGanhos;
     }
 
+    /**
+     * Método de Post responsável por calcular os contos que o usuário vai receber ao postar
+     *
+     * @Param temFoto identifica se o post contem ou não uma foto.
+     * @Param temvideo identifica se o post contém ou não um vídeo.
+     * */
     public int calcularPontos(boolean temFoto, boolean temvideo) {
         int pontos = 10;
         if (temFoto) {pontos += 20;}

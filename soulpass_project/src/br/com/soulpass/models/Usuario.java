@@ -37,6 +37,9 @@ public class Usuario {
 
     public void setBilhete(Bilhete bilhete) {this.bilhete = bilhete;}
 
+    /**
+     * Método simples para mostrar os dados de usuário para o próprio
+     * */
     public String mostrarDados() {
         return "\n======Usuário======" +
                 "\nNome: " + nome +
@@ -45,6 +48,9 @@ public class Usuario {
                 "\nCPF: " + cpf;
     }
 
+    /**
+     * Método simples para mostrar os dados do usuário para os devs
+     * */
     public String mostrarDadosDev() {
         return "\n======Usuário======" +
                 "\nID Usuário: " + idUser +

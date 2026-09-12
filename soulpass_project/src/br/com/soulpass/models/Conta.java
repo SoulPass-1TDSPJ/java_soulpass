@@ -30,10 +30,20 @@ public class Conta{
 
     public void setQtdePontos(double qtdePontos) {this.qtdePontos = qtdePontos;}
 
+    /**
+     * Método adicionar Pontos que adiciona os pontos à conta e retorna que a operação foi um sucesso
+     *
+     * @Param pontos identifica quantos pontos serão adicionados
+     * @Param origem identifica de onde veio os pontos (CAMINHADA ou POST) para, na classe teste, fazer o histórico
+     * de pontos*/
     public void adicionarPontos(double pontos, OrigemPontos origem){
         qtdePontos += pontos;
         System.out.println("----------------" + "\nAdicionado " + pontos + " ponto(s).");
     }
 
+    /**
+     * Método simples que converte os pontos selecionados da conta e o divide por 110
+     *
+     * @Param pontos identifica quantos pontos serão convertidos*/
     public static double converterParaCredito(double pontos) {return pontos/110;}
 }
