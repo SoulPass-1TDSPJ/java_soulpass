@@ -1,4 +1,4 @@
-package br.com.soulpass.service;
+package br.com.soulpass.bo;
 
 public class BilheteService {
 }
