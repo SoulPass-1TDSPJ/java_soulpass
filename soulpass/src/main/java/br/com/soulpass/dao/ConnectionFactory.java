@@ -5,7 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Classe que irá estabelecer conexão com os servidores da OracleDB através dos dados de login e do drive
+ * Classe que irá estabelecer conexão com os servidores da OracleDB através dos dados de login e do drive.
+ * Os dados de acesso NÃO ficam no código: são lidos das variáveis de ambiente SPRING_DATASOURCE_URL,
+ * SPRING_DATASOURCE_USERNAME e SPRING_DATASOURCE_PASSWORD (configuradas no .env, no docker-compose
+ * ou no painel da Render).
  * */
 public class ConnectionFactory {
     /**
@@ -13,20 +16,23 @@ public class ConnectionFactory {
      * e do drive, permitindo a integração do SQL no sistema
      * */
     public static Connection obterConexao(){
-        //Criado objeto que não tem nada
-        Connection conexao = null;
+        String url = System.getenv("SPRING_DATASOURCE_URL");
+        String usuario = System.getenv("SPRING_DATASOURCE_USERNAME");
+        String senha = System.getenv("SPRING_DATASOURCE_PASSWORD");
 
-        //Usa tratativa de erro "try catch" para iniciar a conexão com o gerenciador do drive. Caso dê errado,
-        //ele retorna um erro e a conexão continua nula, sem nada.
+        //Sem as variáveis de ambiente não há como conectar, então avisa claramente o que está faltando
+        if (url == null || usuario == null || senha == null) {
+            throw new IllegalStateException(
+                    "Variáveis de ambiente do Oracle não configuradas."
+            );
+        }
+
+        //Usa tratativa de erro "try catch" para iniciar a conexão com o gerenciador do drive.
         try{
-            conexao = DriverManager.getConnection("jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl", "rm570933",
-                    "200308");
+            return DriverManager.getConnection(url, usuario, senha);
         }
         catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Erro ao conectar ao banco Oracle.", e);
         }
-
-        //Como é um metodo fixo, ele tem que retornar algo, e então ele retorna a conexão.
-        return conexao;
     }
 }
