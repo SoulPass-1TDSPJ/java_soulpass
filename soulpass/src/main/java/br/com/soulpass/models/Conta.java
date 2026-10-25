@@ -18,7 +18,7 @@ public class Conta{
      * Método adicionar Pontos que adiciona os pontos à conta e retorna que a operação foi um sucesso
      *
      * @Param pontos identifica quantos pontos serão adicionados
-     * @Param origem identifica de onde veio os pontos (CAMINHADA ou POST) para, na classe teste, fazer o histórico
+     * @Param origem identifica de onde veio os pontos (CAMINHADA) para, na classe teste, fazer o histórico
      * de pontos*/
     public void adicionarPontos(double pontos, OrigemPontos origem){
         qtdePontos += pontos;

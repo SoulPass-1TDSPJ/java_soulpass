@@ -18,7 +18,7 @@ public class HistoricoPontosDAO {
     /**
      * Insere um novo registro de histórico de pontos, vinculado à conta que os recebeu.
      *
-     * @param historico objeto contendo a conta, a origem dos pontos (ex: caminhada ou post),
+     * @param historico objeto contendo a conta, a origem dos pontos (ex: caminhada),
      *                  a quantidade de pontos ganhos e a data do registro.
      */
     public void registrarHistorico(HistoricoPontos historico) {

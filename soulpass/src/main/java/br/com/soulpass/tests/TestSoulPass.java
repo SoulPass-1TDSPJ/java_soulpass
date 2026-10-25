@@ -4,7 +4,6 @@ import br.com.soulpass.dao.BilheteDAO;
 import br.com.soulpass.dao.CaminhadaDAO;
 import br.com.soulpass.dao.ContaDAO;
 import br.com.soulpass.dao.HistoricoPontosDAO;
-import br.com.soulpass.dao.PostDAO;
 import br.com.soulpass.dao.UsuarioDAO;
 import br.com.soulpass.enums.OrigemPontos;
 import br.com.soulpass.enums.StatusBilhete;
@@ -13,7 +12,6 @@ import br.com.soulpass.models.Bilhete;
 import br.com.soulpass.models.Caminhada;
 import br.com.soulpass.models.Conta;
 import br.com.soulpass.models.HistoricoPontos;
-import br.com.soulpass.models.Post;
 import br.com.soulpass.models.Usuario;
 
 import java.time.LocalDateTime;
@@ -159,18 +157,12 @@ public class TestSoulPass {
                     converterPontosCredito(usuarioLogado, conta);
                     break;
                 case 5:
-                    fazerPost(conta);
-                    break;
-                case 6:
-                    excluirPost(conta);
-                    break;
-                case 7:
                     fazerCaminhada(conta);
                     break;
-                case 8:
+                case 6:
                     exibirHistorico(conta);
                     break;
-                case 9:
+                case 7:
                     desativarConta(conta);
                     op = 0;
                     break;
@@ -291,49 +283,6 @@ public class TestSoulPass {
     }
 
     /**
-     * Cria o post, persiste, calcula os pontos via Post.postar() e grava a conta
-     * e o histórico de pontos atualizados.
-     */
-    private static void fazerPost(Conta conta) {
-        System.out.println("\n======FAZER POST======");
-        String texto = lerString("Texto do post: ");
-        boolean temFoto = lerString("Possui foto? (s/n): ").equalsIgnoreCase("s");
-        boolean temVideo = lerString("Possui vídeo? (s/n): ").equalsIgnoreCase("s");
-
-        Post post = new Post();
-        post.setConta(conta);
-        post.setData(LocalDateTime.now());
-        post.setTemFoto(temFoto);
-        post.setTemvideo(temVideo);
-        post.setTextoPost(texto);
-
-        new PostDAO().cadastrarPost(post);
-
-        int pontosGanhos = post.postar();
-        new ContaDAO().atualizarConta(conta);
-        registrarHistorico(conta, OrigemPontos.POST, pontosGanhos);
-
-        System.out.println("-----------------------\n✅ Post publicado! Você ganhou " + pontosGanhos + " pontos.");
-    }
-
-    private static void excluirPost(Conta conta) {
-        List<Post> posts = new PostDAO().listarPostsPorConta(conta.getIdConta());
-        if (posts.isEmpty()) {
-            System.out.println("-----------------------\n⚠️ Você não possui posts.");
-            return;
-        }
-
-        System.out.println("\n======SEUS POSTS======");
-        for (Post p : posts) {
-            System.out.println("ID: " + p.getIdPost() + " | " + p.getData() + " | " + p.getTextoPost());
-        }
-        int id = lerInt("Digite o ID do post a excluir: ");
-        new PostDAO().excluirPost(id);
-
-        System.out.println("-----------------------\n✅ Post excluído com sucesso!");
-    }
-
-    /**
      * Registra a caminhada, calcula os pontos via Caminhada.caminhar() e grava a conta
      * e o histórico de pontos atualizados.
      */
@@ -376,7 +325,7 @@ public class TestSoulPass {
 
     /**
      * Método auxiliar que grava um novo registro de histórico de pontos para a conta informada,
-     * usado tanto por fazerPost() quanto por fazerCaminhada().
+     * usado por fazerCaminhada().
      */
     private static void registrarHistorico(Conta conta, OrigemPontos origem, int pontosGanhos) {
         HistoricoPontos historico = new HistoricoPontos();
@@ -416,21 +365,15 @@ public class TestSoulPass {
                     devEditarBilhete();
                     break;
                 case 8:
-                    devListarPosts();
-                    break;
-                case 9:
-                    devDeletarPost();
-                    break;
-                case 10:
                     devListarCaminhadas();
                     break;
-                case 11:
+                case 9:
                     devDeletarCaminhada();
                     break;
-                case 12:
+                case 10:
                     devListarHistoricos();
                     break;
-                case 13:
+                case 11:
                     devDeletarHistorico();
                     break;
                 case 0:
@@ -548,27 +491,6 @@ public class TestSoulPass {
         System.out.println("-----------------------\n✅ Bilhete atualizado com sucesso!");
     }
 
-    private static void devListarPosts() {
-        int idConta = lerInt("ID da conta para listar os posts: ");
-        List<Post> lista = new PostDAO().listarPostsPorConta(idConta);
-        if (lista.isEmpty()) {
-            System.out.println("-----------------------\n⚠️ Nenhum post encontrado para essa conta.");
-            return;
-        }
-
-        System.out.println("\n======POSTS======");
-        for (Post p : lista) {
-            System.out.println("ID: " + p.getIdPost() + " | " + p.getData() + " | Foto: " + p.isTemFoto()
-                    + " | Vídeo: " + p.isTemvideo() + " | " + p.getTextoPost());
-        }
-    }
-
-    private static void devDeletarPost() {
-        int id = lerInt("ID do post a excluir: ");
-        new PostDAO().excluirPost(id);
-        System.out.println("-----------------------\n✅ Post excluído com sucesso!");
-    }
-
     private static void devListarCaminhadas() {
         int idConta = lerInt("ID da conta para listar as caminhadas: ");
         List<Caminhada> lista = new CaminhadaDAO().listarCaminhadasPorConta(idConta);
@@ -627,11 +549,9 @@ public class TestSoulPass {
         System.out.println("2 - Editar Usuário");
         System.out.println("3 - Adicionar Bilhete");
         System.out.println("4 - Converter Pontos em Crédito");
-        System.out.println("5 - Fazer Post");
-        System.out.println("6 - Excluir Post");
-        System.out.println("7 - Fazer Caminhada");
-        System.out.println("8 - Exibir Histórico");
-        System.out.println("9 - Desativar Conta");
+        System.out.println("5 - Fazer Caminhada");
+        System.out.println("6 - Exibir Histórico");
+        System.out.println("7 - Desativar Conta");
         System.out.println("0 - Voltar à Entrada");
         System.out.println("----------------------------");
         System.out.println("⬇️ Digite uma opção:");
@@ -646,12 +566,10 @@ public class TestSoulPass {
         System.out.println("5 - Deletar conta");
         System.out.println("6 - Listar bilhetes");
         System.out.println("7 - Editar bilhete");
-        System.out.println("8 - Listar posts");
-        System.out.println("9 - Deletar post");
-        System.out.println("10 - Listar caminhada");
-        System.out.println("11 - Deletar caminhada");
-        System.out.println("12 - Exibir históricos");
-        System.out.println("13 - Deletar histórico");
+        System.out.println("8 - Listar caminhada");
+        System.out.println("9 - Deletar caminhada");
+        System.out.println("10 - Exibir históricos");
+        System.out.println("11 - Deletar histórico");
         System.out.println("0 - Voltar à entrada");
         System.out.println("----------------------------");
         System.out.println("⬇️ Digite uma opção:");

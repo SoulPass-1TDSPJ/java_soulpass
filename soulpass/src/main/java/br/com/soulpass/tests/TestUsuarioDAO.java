@@ -118,7 +118,7 @@ public class TestUsuarioDAO {
         credenciais.setSenha(lerString("Senha: "));
 
         try {
-            Usuario logado = usuarioDAO.login(credenciais);
+            Usuario logado = usuarioDAO.logar(credenciais);
             if (logado == null) {
                 System.out.println("Login inválido.");
             } else {
@@ -222,4 +222,4 @@ public class TestUsuarioDAO {
         String resposta = scanner.nextLine().trim().toLowerCase();
         return resposta.equals("s") || resposta.equals("sim");
     }
-}
+}
